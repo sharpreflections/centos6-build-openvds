@@ -1,0 +1,12 @@
+diff -Naur open-vds-2.1.8/CMakeLists.txt open-vds-2.1.8_patched/CMakeLists.txt
+--- open-vds-2.1.8/CMakeLists.txt	2021-10-29 09:25:48.000000000 +0000
++++ open-vds-2.1.8_patched/CMakeLists.txt	2021-11-25 14:55:58.599574145 +0000
+@@ -199,7 +199,7 @@
+ 
+ add_subdirectory(docs)
+ 
+-add_subdirectory(tools)
++#add_subdirectory(tools)
+ 
+ if (BUILD_PYTHON)
+   add_subdirectory(python)
