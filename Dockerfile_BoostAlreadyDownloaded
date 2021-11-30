@@ -11,8 +11,10 @@ ARG openvds_version=2.1.8
 WORKDIR /build/
 
 COPY  openssl-OpenSSL_$openssl_version.tar.gz /build/
+COPY  boost_$boost_version.tar.bz2 /build/
 COPY  curl-$curl_version.tar.bz2 /build/
 COPY  open-vds-$openvds_version.tar.bz2 /build/
+COPY  libuv-v1.39.0.tar.gz /build/
 COPY  no_tools.patch /build/
 
 
@@ -45,8 +47,8 @@ RUN . /opt/rh/devtoolset-8/enable && \
     cd .. && \
     \
     #Install boost
-    echo "Downloading Boost" &&\
-    curl --remote-name --location https://boostorg.jfrog.io/artifactory/main/release/$boost_download_subdir/source/boost_$boost_version.tar.bz2 &&\
+    # echo "Downloading Boost" &&\
+    # curl --remote-name --location https://boostorg.jfrog.io/artifactory/main/release/$boost_download_subdir/source/boost_$boost_version.tar.bz2 &&\
     tar xf boost_$boost_version.tar.bz2 && cd boost_$boost_version && \
     ./bootstrap.sh --without-libraries=python  --prefix=/opt/boost/ && \
     ./b2 -j 4 link=static,shared toolset=gcc install && \
