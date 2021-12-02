@@ -57,5 +57,5 @@ RUN . /opt/rh/devtoolset-8/enable && \
     tar xf open-vds-$openvds_version.tar.bz2 && cd open-vds-$openvds_version && \
     patch -Np1 <../no_tools.patch && \
     mkdir build && cd build && \
-    LDFLAGS=-L/opt/curl/lib\ -L/opt/openssl/lib\ -L/opt/libuv/lib CXXFLAGS=-isystem\ /opt/openssl/include\ -isystem\ /opt/curl/include\ -isystem\ /opt/libuv/include CMAKE_PREFIX_PATH=/opt/libuv:/opt/curl:/opt/boost:/opt/openssl/ /opt/cmake-3.20.1-linux-x86_64/bin/cmake -DBUILD_TESTS:BOOL=OFF -DBUILD_EXAMPLES:BOOL=OFF -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_INSTALL_PREFIX:PATH=/opt/openvds -GNinja ../ && \
+    LDFLAGS=-L/opt/curl/lib\ -L/opt/openssl/lib\ -L/opt/libuv/lib CXXFLAGS=-isystem\ /opt/openssl/include\ -isystem\ /opt/curl/include\ -isystem\ /opt/libuv/include CMAKE_PREFIX_PATH=/opt/libuv:/opt/curl:/opt/boost:/opt/openssl/ /opt/cmake-3.20.1-linux-x86_64/bin/cmake -DBUILD_TESTS:BOOL=OFF -DBUILD_EXAMPLES:BOOL=OFF -DCMAKE_INSTALL_PREFIX:PATH=/opt/openvds -GNinja ../ && \
     LDFLAGS=-L/opt/curl/lib\ -L/opt/openssl/lib\ -L/opt/libuv/lib CXXFLAGS=-isystem\ /opt/openssl/include\ -isystem\ /opt/curl/include\ -isystem\ /opt/libuv/include CMAKE_PREFIX_PATH=/opt/libuv:/opt/curl:/opt/boost:/opt/openssl/ ninja -j 4 install 
